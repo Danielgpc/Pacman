@@ -1,4 +1,4 @@
-gcc main.c -o build/main \
+gcc main.c src/* -o build/Pacman \
 -I/opt/homebrew/include/ \
 -D_THREAD_SAFE \
 -L/opt/homebrew/lib \

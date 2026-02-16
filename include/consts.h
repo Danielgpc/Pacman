@@ -1,9 +1,12 @@
 #ifndef CONSTS_H
 #define CONSTS_H
 
-const int SCALE = 2;
+extern const int SCALE;
 
-const int HEIGHT = 288 * SCALE;
-const int WIDTH = 224 * SCALE;
+extern const int HEIGHT;
+extern const int WIDTH;
+
+extern const int TILE_HEIGHT;
+extern const int TILE_WIDTH;
 
 #endif
