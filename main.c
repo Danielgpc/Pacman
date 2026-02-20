@@ -1,15 +1,8 @@
 #include<stdio.h>
 #include<SDL2/SDL.h>
 
-#include"consts.h"
 #include"video.h"
-
-const int SCALE = 3;
-const int HEIGHT = 288 * SCALE;
-const int WIDTH = 224 * SCALE;
-
-const int TILE_HEIGHT = 8 * SCALE;
-const int TILE_WIDTH = 8 * SCALE;
+#include"defines.h"
 
 int main()
 {

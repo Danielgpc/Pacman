@@ -1,5 +1,7 @@
 #include"video.h"
 
+#include"defines.h"
+
 int initVideo(SDL_Window** pwindow, SDL_Renderer** prenderer)
 {
     if (SDL_Init(SDL_INIT_VIDEO) < 0) {
