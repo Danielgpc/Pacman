@@ -14,13 +14,9 @@ int initVideo(SDL_Window **pwindow, SDL_Renderer **prenderer) {
     return 0;
   }
 
-  *pwindow = SDL_CreateWindow(
-      "Pacman",
-      SDL_WINDOWPOS_CENTERED,
-      SDL_WINDOWPOS_CENTERED,
-      WIDTH,
-      HEIGHT,
-      0);
+  *pwindow =
+      SDL_CreateWindow("Pacman", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED,
+                       WIDTH * RES, HEIGHT * RES, 0);
 
   if (!*pwindow) {
     SDL_Log("Error: Window could not be created: %s", SDL_GetError());
@@ -39,8 +35,8 @@ int initVideo(SDL_Window **pwindow, SDL_Renderer **prenderer) {
   return 1;
 }
 
-void endVideo(SDL_Renderer *prenderer, SDL_Window *pwindow) { 
-    SDL_DestroyRenderer(prenderer);
-    SDL_DestroyWindow(pwindow);
-    SDL_Quit();
+void endVideo(SDL_Renderer *prenderer, SDL_Window *pwindow) {
+  SDL_DestroyRenderer(prenderer);
+  SDL_DestroyWindow(pwindow);
+  SDL_Quit();
 }

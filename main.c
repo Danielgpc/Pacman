@@ -3,6 +3,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#include "src/defines.h"
 #include "src/video.h"
 
 int main() {
@@ -13,12 +14,12 @@ int main() {
   // Initialize video subsystem
   if (!initVideo(&pwindow, &prenderer)) {
     fprintf(stderr, "Error: Unable to setup SDL video\n");
-    endVideo(prenderer, pwindow); 
+    endVideo(prenderer, pwindow);
     return EXIT_FAILURE;
   }
 
   // Load and convert image to texture
-  SDL_Surface *mainMenu = IMG_Load("assets/Menu.png");
+  SDL_Surface *mainMenu = IMG_Load("assets/Sprites.png");
   if (!mainMenu) {
     fprintf(stderr, "Error: Unable to load image: %s\n", SDL_GetError());
     return EXIT_FAILURE;
@@ -47,8 +48,13 @@ int main() {
     // Clear screen
     SDL_RenderClear(prenderer);
 
-    // Render image to screen
-    SDL_RenderCopy(prenderer, menutexture, NULL, NULL);
+    // Crop from image
+    SDL_Rect src = {.x = 0, .y = 0, .w = HEIGHT, .h = WIDTH};
+
+    // Destination on screen
+    SDL_Rect dest = {.x = 0, .y = 0, .w = HEIGHT * RES, .h = WIDTH * RES};
+
+    SDL_RenderCopy(prenderer, menutexture, &src, &dest);
 
     // Present rendered frame
     SDL_RenderPresent(prenderer);
